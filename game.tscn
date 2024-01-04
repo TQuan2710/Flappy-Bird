@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3mjxf2cwlu5l"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_5uqu3"]
+[ext_resource type="Texture2D" uid="uid://fjxv46psxyfl" path="res://Image/BackGround.png" id="1_6lnkl"]
+[ext_resource type="PackedScene" uid="uid://bitiydesth4io" path="res://pipe.tscn" id="2_myihi"]
+[ext_resource type="PackedScene" uid="uid://bwjok8glooh8q" path="res://bird.tscn" id="3_5kjqi"]
+[ext_resource type="PackedScene" uid="uid://tfm0s2n5b7v5" path="res://ground.tscn" id="4_fu74t"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_5uqu3")
+pipe_scene = ExtResource("2_myihi")
+
+[node name="BackGround" type="Sprite2D" parent="."]
+position = Vector2(256, 256.5)
+scale = Vector2(1.77778, 1.33594)
+texture = ExtResource("1_6lnkl")
+
+[node name="Bird" parent="." instance=ExtResource("3_5kjqi")]
+position = Vector2(150, 338)
+
+[node name="Ground" parent="." instance=ExtResource("4_fu74t")]
+z_index = 1
+
+[node name="PiperTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="timeout" from="PiperTimer" to="." method="_on_piper_timer_timeout"]
