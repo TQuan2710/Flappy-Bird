@@ -1,46 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bwjok8glooh8q"]
 
+[ext_resource type="Script" path="res://Bird.gd" id="1_6sy7v"]
 [ext_resource type="Texture2D" uid="uid://lsmrotwneo0l" path="res://Image/bird1.png" id="2_rx7qi"]
 [ext_resource type="Texture2D" uid="uid://ccv35iiupqrnr" path="res://Image/bird2.png" id="3_24rtm"]
 [ext_resource type="Texture2D" uid="uid://d1jbcj2xtya1i" path="res://Image/bird3.png" id="4_fygk4"]
-
-[sub_resource type="GDScript" id="GDScript_lynrs"]
-script/source = "extends CharacterBody2D
-
-const GRAVITY : int = 1000
-const MAX_LEVEL : int = 600
-const FLAP_SPEED : int = -500
-var falling : bool = false
-var flying : bool = false
-const START_POS = Vector2i(100, 400)
-
-func _ready():
-	reset()
-
-func reset():
-	falling = false
-	flying = false
-	position = START_POS
-	set_rotation(0)
-
-func _physics_process(delta):
-	if flying or falling:
-		velocity.y += GRAVITY * delta
-		if velocity.y > MAX_LEVEL:
-			velocity.y = MAX_LEVEL
-		if flying:
-			set_rotation(deg_to_rad(velocity.y * 0.05))
-			$AnimatedSprite2D.play()
-		elif falling:
-			set_rotation(PI/2)
-			$AnimatedSprite2D.stop()
-		move_and_collide(velocity * delta)
-	else:
-		$AnimatedSprite2D.stop()
-
-func flap():
-	velocity.y = FLAP_SPEED
-"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sao5m"]
 animations = [{
@@ -60,18 +23,19 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0udh7"]
-radius = 15.0
-height = 40.0
+radius = 18.0
+height = 56.0
 
 [node name="Bird" type="CharacterBody2D"]
-script = SubResource("GDScript_lynrs")
+script = ExtResource("1_6sy7v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(33, 27)
+position = Vector2(39.9231, 32)
+scale = Vector2(1.38462, 1.38462)
 sprite_frames = SubResource("SpriteFrames_sao5m")
 animation = &"flying"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(33, 28)
+position = Vector2(40, 32)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0udh7")
