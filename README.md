@@ -4,7 +4,7 @@ This document provides a review of the popular mobile game, Flappy Bird. Flappy 
 
 ## Overview
 
-Flappy Bird is a side-scrolling mobile game developed by Vietnamese game developer and released in 2013. The objective is to navigate a bird through a series of pipes without colliding with them.
+Flappy Bird is a popular game available on both mobile and web platforms, originally coded by TQuan. Developed in 2024, this side-scrolling game gained immense popularity due to its simple yet addictive gameplay mechanics. The objective remains unchanged across all platforms: navigate a bird through a series of pipes without colliding with them.
 
 ## Gameplay
 
