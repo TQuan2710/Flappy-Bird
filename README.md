@@ -30,8 +30,8 @@ Flappy Bird is a popular game available on both mobile and web platforms, origin
 
 ## How to Play
 
-1. **Installation**: Download and install the game from your respective app store (no longer available for download since the developer removed it).
-2. **Launch**: Open the app.
+1. **Installation**: Download code.
+2. **Launch**: Open GoDot and Run.
 3. **Gameplay**: Tap the screen to make the bird flap and navigate through the pipes.
 4. **Scoring**: Try to beat your high score by passing through as many pipes as possible.
 
